@@ -18,8 +18,7 @@ print_head "Extract Frontend Content"
 unzip /tmp/frontend.zip &>>${LOG}
 status_check
 
-print_head "Copy Roboshop Nginx Config File"
-# shellcheck disable=SC2154
+print_head "Copy RoboShop Nginx Config File"
 cp ${script_location}/files/nginx-roboshop.conf /etc/nginx/default.d/roboshop.conf &>>${LOG}
 status_check
 

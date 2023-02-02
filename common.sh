@@ -43,7 +43,7 @@ APP_PREREQ() {
 
 SYSTEMD_SETUP() {
   print_head "Configuring ${component} Service File"
-  cp ${script_location}/files/${component}.service /etc/systemd/system/${component}.service &>>${LOG}
+  cp ${script_location}/file/${component}.service /etc/systemd/system/${component}.service &>>${LOG}
   status_check
 
   print_head "Reload SystemD"
@@ -64,7 +64,7 @@ LOAD_SCHEMA() {
 
     if [ ${schema_type} == "mongo"  ]; then
       print_head "Configuring Mongo Repo "
-      cp ${script_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${LOG}
+      cp ${script_location}/file/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${LOG}
       status_check
 
       print_head "Install Mongo Client"
@@ -147,7 +147,7 @@ PYTHON() {
   status_check
 
   print_head "Update Passwords in Service File"
-  sed -i -e "s/roboshop_rabbitmq_password/${roboshop_rabbitmq_password}/" ${script_location}/files/${component}.service  &>>${LOG}
+  sed -i -e "s/roboshop_rabbitmq_password/${roboshop_rabbitmq_password}/" ${script_location}/file/${component}.service  &>>${LOG}
   status_check
 
   SYSTEMD_SETUP

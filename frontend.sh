@@ -8,6 +8,10 @@ print_head "Remove Nginx Old Content"
 rm -rf /usr/share/nginx/html/* &>>${LOG}
 status_check
 
+print_head "Download Frontend Content"
+curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip &>>${LOG}
+status_check
+
 cd /usr/share/nginx/html &>>${LOG}
 
 print_head "Extract Frontend Content"

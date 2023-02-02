@@ -123,7 +123,7 @@ MAVEN() {
   mvn clean package  &>>${LOG}
   status_check
 
-  print_head "Copy App file to App Location"
+  print_head "Copy App files to App Location"
   mv target/${component}-1.0.jar ${component}.jar
   status_check
 
@@ -146,8 +146,8 @@ PYTHON() {
   pip3.6 install -r requirements.txt  &>>${LOG}
   status_check
 
-  print_head "Update Passwords in Service File"
-  sed -i -e "s/roboshop_rabbitmq_password/${roboshop_rabbitmq_password}/" ${script_location}/file/${component}.service  &>>${LOG}
+  print_head "Update Passwords in Service files"
+  sed -i -e "s/roboshop_rabbitmq_password/${roboshop_rabbitmq_password}/" ${script_location}/files/${component}.service  &>>${LOG}
   status_check
 
   SYSTEMD_SETUP

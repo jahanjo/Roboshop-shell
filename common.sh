@@ -1,2 +1,2 @@
-script_location=$(pwd)
-echo script_location
+echo script_location=$(pwd)
+

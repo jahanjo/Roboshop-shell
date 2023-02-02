@@ -1,4 +1,3 @@
-script_location=${pwd}
 source common.sh
 
 print_head "Install Nginx"
